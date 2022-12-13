@@ -4,8 +4,8 @@
 
 | Course | Training material |
 |----------------------------------|----------|
-| Lecture | [pdf](IntroGalaxy.pdf) |
-| Hands-on - HTML render | [HTML](https://slegras.github.io/UEneuroepigenetics/neuroepigenetics_2022.html) |
+| Introduction to Galaxy - Lecture | [pdf](IntroGalaxy.pdf) |
+| Introduction to Galaxy - Hands-on | [HTML](https://slegras.github.io/DUdijon/Galaxy.html) |
 
 ## Link
-- Web pages: <https://slegras.github.io/UEneuroepigenetics/>
+- Web pages: <https://slegras.github.io/DUdijon/>
