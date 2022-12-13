@@ -1,0 +1,246 @@
+---
+title: "DU High throughput sequencing and rare diseases - Introduction to Galaxy"
+author: "Stephanie Le Gras$^{1}$ - slegras@igbmc.fr"
+date: "2022 december 13th"
+output:
+  html_document:
+    fig_caption: yes
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
+    number_sections: yes
+  word_document:
+    toc: yes
+    toc_depth: '2'
+  pdf_document:
+    fig_caption: yes
+    keep_tex: yes
+    toc: yes
+    toc_depth: 2
+bibliography: references.bib    
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, root.dir="~/Documents/Formations/2022/DUDijon")
+```
+
+$^1$ GenomEast platform, IGBMC
+
+# - Log in to GalaxEast
+  * Go to [Galaxy France website](https://usegalaxy.fr/)
+  * Log in to your account.
+
+![][login]
+
+
+# - History
+## - Create a new history
+
+![][createnewhistory]
+
+## - Change the name of the history to “DNA-seq data analysis"
+
+  * Change the name of the new history to “DNA-seq data analysis” by clicking on “Unnamed history” on top of the history panel. Then type "DNA-seq data analysis” and [ENTER].
+
+![][renamehistory]
+
+# - Importing files from your computer to Galaxy
+
+  - Download the file “**sample.bed.gz**” following this [link](https://seafile.igbmc.fr/d/1adaad8f80394182a784/) and upload it to Galaxy.
+  * The genome is: Mouse (mm9)
+  * The format is: bed
+
+You should be in the history “DNA-seq data analysis” (Switch to it if needed)
+
+  * Download the file “sample.bed” and upload it into GalaxEast in the history called “DNA-seq data analysis”
+  * Click on "Upload Data"
+  * Drag and drop the file sample.bed to the window that popped up.
+  * The genome is : Mouse (mm9)
+  * The format is : bed
+
+![][importData]
+
+# - Remove a dataset
+
+  - Remove the dataset **sample.bed** from your history by clicking on the button 
+
+![][removedataset]
+
+  - You are told that your history is empty. Look at the size of your history
+    - Click on “**Show deleted**” in the top of the history panel. Remove definitely the file from the disk by clicking on "**Purge All Deleted Content**”.
+    - Click on “**Show active**”
+
+![][showDeletedDatasets]
+
+# - Running a tool
+
+  - Download the two files **CRN-107_11-R1.fastq.gz** and **CRN-107_11-R2.fastq.gz** following this [link](https://seafile.igbmc.fr/d/1adaad8f80394182a784/).
+  - Import them to your history called “DNA-seq data analysis”
+    * The genome is: Human (hg19)
+    * The format: \<auto detect\>
+
+  - Click on "Upload Data"
+  - Drag and drop the two fastq files “**CRN-107_11-R1.fastq.gz**” and "**CRN-107_11-R2.fastq.gz**"
+  - Select/Enter Genome for both datasets as: hg19
+  - Click on Start
+
+![][UploadFastqFiles]
+
+  - Use the tool “FastQC Read Quality reports” to compute quality analysis on the datasets “**CRN-107_11-R1.fastq**” and "**CRN-107_11-R2.fastq**"
+    - Use default parameters.
+
+One can run the same tool with the same set of parameters on several files at the same time.
+
+![][runtool]
+
+What is the quality encoding of the two fastq files?
+
+![][qualityencoding]
+
+# - Running tools without a workflow 
+Analyze CRN-107 data from reads to variant annotation.
+
+Run the following tools:
+
+  - BWA mem to align reads to the reference genome
+  - Picard markduplicates to identify duplicated reads
+  - Freebayes to detect variants
+  - snpEff to annotate variants
+
+To run the tools you will need the following files:
+
+  * CRN-107_11-R1.fastq
+  * CRN-107_11-R2.fastq
+  * CaptureDesign_chr4.bed (download it from [here](https://seafile.igbmc.fr/d/1adaad8f80394182a784/))
+
+Here are the parameters to use for each of the tools. All parameters not mentioned are to be used with default values.
+
+  - __Map with BWA-MEM__ - map medium and long reads (> 100 bp) against reference genome
+    - Using reference genome: Human (Homo sapiens) (b37): hg19
+    - Single or Paired-end reads: Paired
+    - Select first set of reads: CRN-107_11-R1.fastq.gz
+    - Select second set of reads: CRN-107_11-R2.fastq.gz 
+    - Set read groups information? Set read groups (Picard style)
+      - Read group identifier (ID): Auto-assign Yes
+      - Read group sample name (SM): Auto-assign Yes
+      - Library name (LB): Auto-assign Yes
+      - Platform/technology used to produce the reads (PL): ILLUMINA
+      - Platform unit (PU): HS026.2
+      - Sequencing center that produced the read (CN): Genomeast
+      - Description (DS): CRN-107
+      - Predicted median insert size (PI): 250
+      - Date that run was produced (DT): 2017-12-13
+  - __MarkDuplicates__ examine aligned records in BAM datasets to locate duplicate molecules.
+    - Select SAM/BAM dataset or dataset collection: **output of BWA mem**
+    - Select validation stringency: Silent
+  - __FreeBayes__ bayesian genetic variant detector
+    - BAM or CRAM dataset: **output (bam) of markduplicates**
+    - Using reference genome: hg19
+    - Limit analysis to regions in this BED dataset: CaptureDesign_chr4.bed
+  - __SnpEff__ Variant effect and annotation
+    - Sequence changes (SNPs, MNPs, InDels): **output of FreeBayes (VCF)**
+    - Input format: VCF
+    - Output format: VCF (only if input is VCF)
+    - Genome source: Downloaded on demand
+      - Snpff Genome Version Name (e.g. GRCh38.86): hg19
+  - __VCFtoTab-delimited__: Convert VCF data into TAB-delimited format
+    - Select VCF dataset to convert: **output of SnpEff**
+
+  - How many variants are called?
+
+
+# - Create a workflow out of an existing history
+One can create a workflow from an existing history going to the history button and selecting "Extract Workflow".
+
+## - Extract a workflow out of the history called "DNA-seq data analysis"
+
+![][extractworkflow]
+
+
+## - Rename the workflow "DNA-seq data analysis"
+
+![][editorrunworklow]
+
+# - Edit a workflow with the workflow editor 
+## - Open the workflow editor with the workflow "DNA-seq data analysis" 
+
+  - Click on Workflow (top menu)
+  - Click on **DNA-seq data analysis** in the list of workflows
+  - Select **edit**
+
+![][editworklow]
+
+An interactive view of the workflow is displayed:
+![][dnaseqworkflow]
+
+You can move the boxes to make the workflow clearer:
+![][dnaseqorderedworkflow]
+
+## - Add steps to the workflow
+Your workflow should look like this before editing:
+
+![][workflowbeforeediting]
+
+Add the following tools:
+
+  - __Samtools flagstat__ to compute mapping statistics (after BWA mem)
+  - __Filter SAM or BAM, output SAM or BAM__ to select aligned reads with a mapping quality >= 20 (after MarkDuplicates)
+  - __Samtools flagstat__ to compute mapping statistics after removing reads with low mapping qualities (after Filter)
+
+Here are the parameters to use for each of the tools:
+
+  - __Flagstat__ tabulate descriptive stats for BAM dataset
+    - BAM File to Convert: **output of BWA mem**
+  - __Filter SAM or BAM, output SAM or BAM__ files on FLAG MAPQ RG LN or by region
+    - SAM or BAM file to filter: **output of Picard MarkDuplicates**
+    - Minimum MAPQ quality score: **20**
+  - __Flagstat__ tabulate descriptive stats for BAM dataset
+    - BAM File to Convert: **output of Filter**
+
+The final workflow should look like this (new tools are in purple boxes):
+
+![][workflowafterediting]
+
+Save the workflow once you are done editing it:
+
+![][saveworkflow]
+
+# - Run a workflow
+## - Import files
+Import the following files from the data library “DNA-seq test datasets” to a new history: 
+
+  * CRN-107_11-R1.fastq
+  * CRN-107_11-R2.fastq
+  * CaptureDesign_chr4.bed
+
+## - Run the workflow DNA-seq data analysis
+
+![][runworkflow2]
+
+  - Choose the right files.
+  - Check the parameters. 
+
+![][runworkflow1]
+
+  - How many reads are discarded due to the low mapping quality?
+
+[importData]: images/importData.png "importe data"
+[removedataset]: images/RemoveDataset.png "remove dataset"
+[showDeletedDatasets]: images/showDeletedDatasets.png "show deleted datasets"
+[workflowbeforeediting]: images/workflowbeforeediting.png "workflowbeforeediting"
+[login]: images/00-login.png "00-login"
+[createnewhistory]: images/01-createnewhistory.png "01-createnewhistory"
+[qualityencoding]: images/02-qualityencoding.png "02-qualityencoding"
+[renamehistory]: images/02-renamehistory.png "02-renamehistory"
+[runtool]: images/02-runtool.png "02-runtool"
+[extractworkflow]: images/03-extractworkflow.png "03-extractworkflow"
+[LaunchDragAndDrop]: images/03.1-LaunchDragAndDrop.png "03.1-LaunchDragAndDrop"
+[UploadFastqFiles]: images/03.2-UploadFastqFiles.png "03.2-UploadFastqFiles"
+[editorrunworklow]: images/05-editorrunworklow.png "05-editorrunworklow"
+[editworklow]: images/06-editworklow.png "06-editworklow"
+[dnaseqworkflow]: images/07-dnaseqworkflow.png "07-dnaseqworkflow"
+[dnaseqorderedworkflow]: images/08-dnaseqorderedworkflow.png "08-dnaseqorderedworkflow"
+[saveworkflow]: images/10-saveworkflow.png "10-saveworkflow"
+[runworkflow1]: images/12-runworkflow.png "12-runworkflow"
+[RunWorkflow2]: images/RunWorkflow.png "RunWorkflow"
+[workflowafterediting]: images/workflowafterediting.png "workflowafterediting"
