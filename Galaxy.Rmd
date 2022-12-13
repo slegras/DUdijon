@@ -32,6 +32,7 @@ $^1$ GenomEast platform, IGBMC
 
 ![][login]
 
+Once done, please visit this [page](https://usegalaxy.fr/join-training/DUrareDiseasesDijon/).
 
 # - History
 ## - Create a new history
