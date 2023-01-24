@@ -26,7 +26,7 @@ knitr::opts_chunk$set(echo = TRUE, root.dir="~/Documents/Formations/2022/DUDijon
 
 $^1$ GenomEast platform, IGBMC
 
-# - Log in to GalaxEast
+# - Log in to Galaxy
   * Go to [Galaxy France website](https://usegalaxy.fr/)
   * Log in to your account.
 
@@ -41,7 +41,7 @@ Once done, please visit this [page](https://usegalaxy.fr/join-training/DUrareDis
 
 ## - Change the name of the history to “DNA-seq data analysis"
 
-  * Change the name of the new history to “DNA-seq data analysis” by clicking on “Unnamed history” on top of the history panel. Then type "DNA-seq data analysis” and [ENTER].
+  * Change the name of the new history to “DNA-seq data analysis” by clicking on the pencil next to the history name. Then, click on “Unnamed history” on top of the history panel, enter "DNA-seq data analysis” and click save.
 
 ![][renamehistory]
 
@@ -53,7 +53,7 @@ Once done, please visit this [page](https://usegalaxy.fr/join-training/DUrareDis
 
 You should be in the history “DNA-seq data analysis” (Switch to it if needed)
 
-  * Download the file “sample.bed” and upload it into GalaxEast in the history called “DNA-seq data analysis”
+  * Download the file “sample.bed.gz” and upload it into Galaxy in the history called “DNA-seq data analysis”
   * Click on "Upload Data"
   * Drag and drop the file sample.bed to the window that popped up.
   * The genome is : Mouse (mm9)
@@ -63,7 +63,7 @@ You should be in the history “DNA-seq data analysis” (Switch to it if needed
 
 # - Remove a dataset
 
-  - Remove the dataset **sample.bed** from your history by clicking on the button 
+  - Remove the dataset **sample.bed.gz** from your history by clicking on the button
 
 ![][removedataset]
 
@@ -98,7 +98,7 @@ What is the quality encoding of the two fastq files?
 
 ![][qualityencoding]
 
-# - Running tools without a workflow 
+# - Running tools without a workflow
 Analyze CRN-107 data from reads to variant annotation.
 
 Run the following tools:
@@ -120,7 +120,7 @@ Here are the parameters to use for each of the tools. All parameters not mention
     - Using reference genome: Human (Homo sapiens) (b37): hg19
     - Single or Paired-end reads: Paired
     - Select first set of reads: CRN-107_11-R1.fastq.gz
-    - Select second set of reads: CRN-107_11-R2.fastq.gz 
+    - Select second set of reads: CRN-107_11-R2.fastq.gz
     - Set read groups information? Set read groups (Picard style)
       - Read group identifier (ID): Auto-assign Yes
       - Read group sample name (SM): Auto-assign Yes
@@ -162,8 +162,8 @@ One can create a workflow from an existing history going to the history button a
 
 ![][editorrunworklow]
 
-# - Edit a workflow with the workflow editor 
-## - Open the workflow editor with the workflow "DNA-seq data analysis" 
+# - Edit a workflow with the workflow editor
+## - Open the workflow editor with the workflow "DNA-seq data analysis"
 
   - Click on Workflow (top menu)
   - Click on **DNA-seq data analysis** in the list of workflows
@@ -208,7 +208,7 @@ Save the workflow once you are done editing it:
 
 # - Run a workflow
 ## - Import files
-Import the following files from the data library “DNA-seq test datasets” to a new history: 
+Import the following files from the data library “DNA-seq test datasets” to a new history:
 
   * CRN-107_11-R1.fastq
   * CRN-107_11-R2.fastq
@@ -219,29 +219,29 @@ Import the following files from the data library “DNA-seq test datasets” to 
 ![][runworkflow2]
 
   - Choose the right files.
-  - Check the parameters. 
+  - Check the parameters.
 
 ![][runworkflow1]
 
   - How many reads are discarded due to the low mapping quality?
 
-[importData]: images/importData.png "importe data"
-[removedataset]: images/RemoveDataset.png "remove dataset"
-[showDeletedDatasets]: images/showDeletedDatasets.png "show deleted datasets"
-[workflowbeforeediting]: images/workflowbeforeediting.png "workflowbeforeediting"
-[login]: images/00-login.png "00-login"
-[createnewhistory]: images/01-createnewhistory.png "01-createnewhistory"
-[qualityencoding]: images/02-qualityencoding.png "02-qualityencoding"
-[renamehistory]: images/02-renamehistory.png "02-renamehistory"
-[runtool]: images/02-runtool.png "02-runtool"
-[extractworkflow]: images/03-extractworkflow.png "03-extractworkflow"
-[LaunchDragAndDrop]: images/03.1-LaunchDragAndDrop.png "03.1-LaunchDragAndDrop"
-[UploadFastqFiles]: images/03.2-UploadFastqFiles.png "03.2-UploadFastqFiles"
-[editorrunworklow]: images/05-editorrunworklow.png "05-editorrunworklow"
-[editworklow]: images/06-editworklow.png "06-editworklow"
-[dnaseqworkflow]: images/07-dnaseqworkflow.png "07-dnaseqworkflow"
-[dnaseqorderedworkflow]: images/08-dnaseqorderedworkflow.png "08-dnaseqorderedworkflow"
-[saveworkflow]: images/10-saveworkflow.png "10-saveworkflow"
-[runworkflow1]: images/12-runworkflow.png "12-runworkflow"
-[RunWorkflow2]: images/RunWorkflow.png "RunWorkflow"
-[workflowafterediting]: images/workflowafterediting.png "workflowafterediting"
+[importData]: images/Galaxy/importData.png "importe data"
+[removedataset]: images/Galaxy/RemoveDataset.png "remove dataset"
+[showDeletedDatasets]: images/Galaxy/showDeletedDatasets.png "show deleted datasets"
+[workflowbeforeediting]: images/Galaxy/workflowbeforeediting.png "workflowbeforeediting"
+[login]: images/Galaxy/00-login.png "00-login"
+[createnewhistory]: images/Galaxy/01-createnewhistory.png "01-createnewhistory"
+[qualityencoding]: images/Galaxy/02-qualityencoding.png "02-qualityencoding"
+[renamehistory]: images/Galaxy/02-renamehistory.png "02-renamehistory"
+[runtool]: images/Galaxy/02-runtool.png "02-runtool"
+[extractworkflow]: images/Galaxy/03-extractworkflow.png "03-extractworkflow"
+[LaunchDragAndDrop]: images/Galaxy/03.1-LaunchDragAndDrop.png "03.1-LaunchDragAndDrop"
+[UploadFastqFiles]: images/Galaxy/03.2-UploadFastqFiles.png "03.2-UploadFastqFiles"
+[editorrunworklow]: images/Galaxy/05-editorrunworklow.png "05-editorrunworklow"
+[editworklow]: images/Galaxy/06-editworklow.png "06-editworklow"
+[dnaseqworkflow]: images/Galaxy/07-dnaseqworkflow.png "07-dnaseqworkflow"
+[dnaseqorderedworkflow]: images/Galaxy/08-dnaseqorderedworkflow.png "08-dnaseqorderedworkflow"
+[saveworkflow]: images/Galaxy/10-saveworkflow.png "10-saveworkflow"
+[runworkflow1]: images/Galaxy/12-runworkflow.png "12-runworkflow"
+[RunWorkflow2]: images/Galaxy/RunWorkflow.png "RunWorkflow"
+[workflowafterediting]: images/Galaxy/workflowafterediting.png "workflowafterediting"
