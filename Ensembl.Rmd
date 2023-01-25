@@ -36,7 +36,7 @@ $^1$ GenomEast platform, IGBMC
 </details>
 
 
-  * How many coding genes does the Human genome contain in the current Ensembl release (v105)?
+  * How many coding genes does the Human genome contain in the current Ensembl release (v108)?
 
 <details>
   <summary> Show answer </summary>
@@ -144,7 +144,7 @@ Display RNAseq data for breast and skeletal muscle in the genome browser (in BRC
 ### - Question
 
 Using Ensembl/BioMart, retrieve all transcripts IDs and the gene ID of IDH1 gene (human). How many transcripts the gene IDH1 has?
-Use Ensembl Gene v105, for Human GRCh38.p13:
+Use Ensembl Gene v108, for Human GRCh38.p13:
 
   * Click on Filters :
     * Expand the GENE section
@@ -161,7 +161,7 @@ Use Ensembl Gene v105, for Human GRCh38.p13:
   - Click on Filters (left panel)
   - Expand the “GENE” section
   - Select “Input external references ID list”, select “Gene Name(s)" in the drop down list and enter IDH1.
-  - Click on Count in the top left panel . You should get 1/67130 Genes.
+  - Click on Count in the top left panel . You should get 1 / 69292 Genes.
   - Click on Attributes (left menu)
   - Select “Features” (selected by default)
   - Select Gene stable ID, Transcript stable ID, Gene Name
@@ -275,7 +275,7 @@ Here are the different column of the file to be analyzed:
   * ... | ... |
 
 ### - Question
-Download and uncompress the file {{:training:simitfvssiluc-up.tsv.zip|siMitfvssiLuc.up.txt.zip}} to extract gene annotations using Ensembl/BioMart for those genes. Use the column Gene ID to extract annotations. Annotations to extract are:
+Download and uncompress the file [simitfvssiluc-up.tsv.zip](https://seafile.igbmc.fr/f/a1e03f1b711349489bd2/?dl=1) to extract gene annotations using Ensembl/BioMart for those genes. Use the column Gene ID to extract annotations. Annotations to extract are:
 
   * gene IDs
   * chromosome
@@ -380,7 +380,7 @@ Generate a list that shows to which Gene stable IDs and to which Gene names thes
 <details>
   <summary> Show answer </summary>
   - Click New.
-  - Choose the ENSEMBL Genes 105 database.
+  - Choose the ENSEMBL Genes 108 database.
   - Choose the Homo sapiens genes (GRCh38.p13) dataset.
 
   - Click on Filters in the left panel.
@@ -417,7 +417,7 @@ Retrieve for the genes corresponding to these probe-sets the Gene and Transcript
 <details>
   <summary> Show answer </summary>
   * Click New.
-  * Choose the ENSEMBL Genes 105 database.
+  * Choose the ENSEMBL Genes 108 database.
   * Choose the Homo sapiens genes (GRCh38.p13) dataset.
 
   * Click on Filters in the left panel.
