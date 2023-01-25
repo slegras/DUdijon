@@ -1,6 +1,6 @@
 ---
 title: "DU High throughput sequencing and rare diseases - Introduction to Ensembl Genome Browser/Biomart"
-author: "Stephanie Le Gras$^{1}$ - slegras@igbmc.fr"
+author: "Jean Muller$^{1}$ - jeanmuller@unistra.fr; Stephanie Le Gras$^{2}$ - slegras@igbmc.fr"
 date: "2023 January 25th"
 output:
   html_document:
@@ -24,7 +24,9 @@ bibliography: references.bib
 knitr::opts_chunk$set(echo = TRUE, root.dir="~/Documents/Formations/2022/DUDijon")
 ```
 
-$^1$ GenomEast platform, IGBMC
+$^1$ Laboratoire de Génétique Médicale (U1112); Laboratoires de Diagnostic Génétique (HUS); Bioinformatique Médicale appliquée au Diagnostic (UF7363)
+
+$^2$ GenomEast platform, IGBMC
 
 # - Practical session: Ensembl Genome Browser
 ## - Question
