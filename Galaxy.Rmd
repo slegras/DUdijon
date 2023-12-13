@@ -1,7 +1,7 @@
 ---
 title: "DU High throughput sequencing and rare diseases - Introduction to Galaxy"
 author: "Stephanie Le Gras$^{1}$ - slegras@igbmc.fr"
-date: "2022 december 13th"
+date: "2023 december 13th"
 output:
   html_document:
     fig_caption: yes
@@ -21,7 +21,7 @@ bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, root.dir="~/Documents/Formations/2022/DUDijon")
+knitr::opts_chunk$set(echo = TRUE, root.dir="~/Documents/Formations/2023/DUDijon")
 ```
 
 $^1$ GenomEast platform, IGBMC
@@ -32,7 +32,7 @@ $^1$ GenomEast platform, IGBMC
 
 ![][login]
 
-Once done, please visit this [page](https://usegalaxy.fr/join-training/DUrareDiseasesDijon/).
+Once done, please visit this [page](https://usegalaxy.fr/join-training/dudijongalaxy2023).
 
 # - History
 ## - Create a new history
@@ -47,7 +47,7 @@ Once done, please visit this [page](https://usegalaxy.fr/join-training/DUrareDis
 
 # - Importing files from your computer to Galaxy
 
-  - Download the file “**sample.bed.gz**” following this [link](https://seafile.igbmc.fr/d/1adaad8f80394182a784/) and upload it to Galaxy.
+  - Download the file “**sample.bed.gz**” following this [link](https://seafile.igbmc.fr/d/e5ff06e2623344e68a20/) and upload it to Galaxy.
   * The genome is: Mouse (mm9)
   * The format is: bed
 
@@ -112,7 +112,7 @@ To run the tools you will need the following files:
 
   * CRN-107_11-R1.fastq
   * CRN-107_11-R2.fastq
-  * CaptureDesign_chr4.bed (download it from [here](https://seafile.igbmc.fr/d/1adaad8f80394182a784/))
+  * CaptureDesign_chr4.bed (download it from [here](https://seafile.igbmc.fr/d/e5ff06e2623344e68a20/))
 
 Here are the parameters to use for each of the tools. All parameters not mentioned are to be used with default values.
 
@@ -137,8 +137,9 @@ Here are the parameters to use for each of the tools. All parameters not mention
   - __FreeBayes__ bayesian genetic variant detector
     - BAM or CRAM dataset: **output (bam) of markduplicates**
     - Using reference genome: hg19
-    - Limit analysis to regions in this BED dataset: CaptureDesign_chr4.bed
-  - __SnpEff__ Variant effect and annotation
+    - Limit by target file
+      - Limit analysis to regions in this BED dataset: CaptureDesign_chr4.bed
+  - __SnpEff eff:__ annotate variants
     - Sequence changes (SNPs, MNPs, InDels): **output of FreeBayes (VCF)**
     - Input format: VCF
     - Output format: VCF (only if input is VCF)
