@@ -1,7 +1,7 @@
 ---
 title: "DU High throughput sequencing and rare diseases - Introduction to Ensembl Genome Browser/Biomart"
 author: "Jean Muller$^{1}$ - jeanmuller@unistra.fr; Stephanie Le Gras$^{2}$ - slegras@igbmc.fr"
-date: "2023 January 25th"
+date: "2024 January 17th"
 output:
   html_document:
     fig_caption: yes
@@ -21,7 +21,7 @@ bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, root.dir="~/Documents/Formations/2022/DUDijon")
+knitr::opts_chunk$set(echo = TRUE, root.dir="~/Documents/Formations/2024/DUDijon")
 ```
 
 $^1$ Laboratoire de Génétique Médicale (U1112); Laboratoires de Diagnostic Génétique (HUS); Bioinformatique Médicale appliquée au Diagnostic (UF7363)
@@ -38,7 +38,7 @@ $^2$ GenomEast platform, IGBMC
 </details>
 
 
-  * How many coding genes does the Human genome contain in the current Ensembl release (v108)?
+  * How many coding genes does the Human genome contain in the current Ensembl release (v111)?
 
 <details>
   <summary> Show answer </summary>
@@ -71,7 +71,7 @@ $^2$ GenomEast platform, IGBMC
 ![][nakedmolerat]
 </details>
 
-  * How many genes were predicted by Genscan?
+  * How many coding genes does the Naked mole-rat female genome contain?
 
 <details>
   <summary> Show answer </summary>
@@ -126,7 +126,7 @@ Comment – Go back to the "Gene: BBS5" tab and have a look at the colors of tra
   - Select Yes for « Show variations: »
 
 ![][brca1_displayvariation]
-<details>
+</details>
 
 ## - Question
 Display RNAseq data for breast and skeletal muscle in the genome browser (in BRCA1 gene region).
@@ -146,7 +146,7 @@ Display RNAseq data for breast and skeletal muscle in the genome browser (in BRC
 ### - Question
 
 Using Ensembl/BioMart, retrieve all transcripts IDs and the gene ID of IDH1 gene (human). How many transcripts the gene IDH1 has?
-Use Ensembl Gene v108, for Human GRCh38.p13:
+Use Ensembl Gene v111, for Human GRCh38.p14:
 
   * Click on Filters :
     * Expand the GENE section
@@ -163,7 +163,7 @@ Use Ensembl Gene v108, for Human GRCh38.p13:
   - Click on Filters (left panel)
   - Expand the “GENE” section
   - Select “Input external references ID list”, select “Gene Name(s)" in the drop down list and enter IDH1.
-  - Click on Count in the top left panel . You should get 1 / 69292 Genes.
+  - Click on Count in the top left panel . You should get 1 / 70711 Genes.
   - Click on Attributes (left menu)
   - Select “Features” (selected by default)
   - Select Gene stable ID, Transcript stable ID, Gene Name
@@ -355,7 +355,7 @@ In Ensembl/BioMart, create a new request (see slide 2.)
 
   - Click on Filters (left panel)
   - Expand the REGION section
-  - Select “Chromosome” and multiple select 1 -> MT (click and drag). This corresponds to 61487 / 68005 Genes
+  - Select “Chromosome” and multiple select 1 -> MT (click and drag). This corresponds to 58676 / 64914 Genes
   - Click on Attributes (left panel)
   - Select “Features” (selected by default)
   - In GENE, select Gene stable ID, Chromosome/scaffold name, Gene Start (bp), Gene End (bp), strand and Gene Name
@@ -382,15 +382,15 @@ Generate a list that shows to which Gene stable IDs and to which Gene names thes
 <details>
   <summary> Show answer </summary>
   - Click New.
-  - Choose the ENSEMBL Genes 108 database.
-  - Choose the Homo sapiens genes (GRCh38.p13) dataset.
+  - Choose the ENSEMBL Genes 111 database.
+  - Choose the Homo sapiens genes (GRCh38.p14) dataset.
 
   - Click on Filters in the left panel.
   - Expand the GENE section by clicking on the + box.
   - Select ID list limit - RefSeq peptide ID(s) and enter the list of IDs in the text box (either comma separated or as a list).
   - HINT: You may have to scroll down the menu to see these.
 
-  - Count shows 4 genes (remember one gene may have multiple splice variants coding for different proteins, that is the reason why these 11 do not correspond to 11 genes).
+  - Count shows 3 genes (remember one gene may have multiple splice variants coding for different proteins, that is the reason why these 11 do not correspond to 11 genes).
 
   - Click on Attributes in the left panel.
   - Select the Features attributes page.
@@ -419,12 +419,12 @@ Retrieve for the genes corresponding to these probe-sets the Gene and Transcript
 <details>
   <summary> Show answer </summary>
   * Click New.
-  * Choose the ENSEMBL Genes 108 database.
-  * Choose the Homo sapiens genes (GRCh38.p13) dataset.
+  * Choose the ENSEMBL Genes 111 database.
+  * Choose the Homo sapiens genes (GRCh38.p14) dataset.
 
   * Click on Filters in the left panel.
   * Expand the GENE section by clicking on the + box.
-  * Select ID list limit - Affy hg u133 plus 2 probeset ID(s) and enter the list of probeset IDs in the text box (either comma separated or as a list).
+  * Select Input microarray probes/probesets ID list - AFFY HG U133 Plus 2 probe ID(s) and enter the list of probeset IDs in the text box (either comma separated or as a list).
 
   * Count shows 9 genes match this list of probesets.
 
@@ -467,6 +467,9 @@ In order to be able to study these human genes in mouse, identify their mouse or
 # - Credits
 
 Some exercices are taken from [Ensembl tutorials](http://www.ebi.ac.uk/seqdb/confluence/display/ENSEXT/Ensembl+exercises).
+
+# - Ensembl mirror
+http://useast.ensembl.org/index.html
 
 [humangenomeassembly]: images/Ensembl/humangenomeassembly.png "Human genome assembly"
 [numberofgenehuman]: images/Ensembl/numberofgenehuman.png "number of Human genes"
