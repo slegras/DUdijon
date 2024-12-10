@@ -32,6 +32,8 @@ $^1$ GenomEast platform, IGBMC
 
 ![][login]
 
+Once done, please visit this [page](https://usegalaxy.fr/join-training/dudijon-dec2024).
+
 # - History
 ## - Create a New History
 - Create a new history.
