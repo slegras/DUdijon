@@ -1,7 +1,7 @@
 ---
 title: "DU High throughput sequencing and rare diseases - Introduction to Galaxy"
 author: "Stephanie Le Gras$^{1}$ - slegras@igbmc.fr"
-date: "2023 december 13th"
+date: "2024 December 11th"
 output:
   html_document:
     fig_caption: yes
@@ -27,96 +27,85 @@ knitr::opts_chunk$set(echo = TRUE, root.dir="~/Documents/Formations/2023/DUDijon
 $^1$ GenomEast platform, IGBMC
 
 # - Log in to Galaxy
-  * Go to [Galaxy France website](https://usegalaxy.fr/)
-  * Log in to your account.
+- Go to the [Galaxy France website](https://usegalaxy.fr/).
+- Log in to your account. If you do not have an account, register first.
 
 ![][login]
 
-Once done, please visit this [page](https://usegalaxy.fr/join-training/dudijongalaxy2023).
-
 # - History
-## - Create a new history
+## - Create a New History
+- Create a new history.
 
 ![][createnewhistory]
 
-## - Change the name of the history to “DNA-seq data analysis"
-
-  * Change the name of the new history to “DNA-seq data analysis” by clicking on the pencil next to the history name. Then, click on “Unnamed history” on top of the history panel, enter "DNA-seq data analysis” and click save.
+## - Rename the History to “DNA-seq data analysis”
+- Change the name of the new history to “DNA-seq data analysis” by clicking the pencil icon next to the history name. 
+- Click on “Unnamed history” at the top of the history panel, enter "DNA-seq data analysis,” and click Save.
 
 ![][renamehistory]
 
-# - Importing files from your computer to Galaxy
+# - Importing Files from Your Computer to Galaxy
+- Download the file **sample.bed.gz** from [this link](https://seafile.igbmc.fr/d/e5ff06e2623344e68a20/) and upload it to Galaxy.
+  - Genome: Mouse (mm9)
+  - Format: bed
 
-  - Download the file “**sample.bed.gz**” following this [link](https://seafile.igbmc.fr/d/e5ff06e2623344e68a20/) and upload it to Galaxy.
-  * The genome is: Mouse (mm9)
-  * The format is: bed
+- Ensure you are in the “DNA-seq data analysis” history (switch to it if needed).
 
-You should be in the history “DNA-seq data analysis” (Switch to it if needed)
-
-  * Download the file “sample.bed.gz” and upload it into Galaxy in the history called “DNA-seq data analysis”
-  * Click on "Upload Data"
-  * Drag and drop the file sample.bed to the window that popped up.
-  * The genome is : Mouse (mm9)
-  * The format is : bed
+## - Upload Steps:
+1. Download the file **sample.bed.gz**.
+2. Upload it into Galaxy under the “DNA-seq data analysis” history:
+   - Click on **Upload Data**.
+   - Drag and drop the file into the upload window.
+   - Set:
+     - Genome: Mouse (mm9)
+     - Format: bed
 
 ![][importData]
 
-# - Remove a dataset
-
-  - Remove the dataset **sample.bed.gz** from your history by clicking on the button
+# - Remove a Dataset
+- Remove the **sample.bed.gz** dataset from your history by clicking the delete button.
 
 ![][removedataset]
 
-  - You are told that your history is empty. Look at the size of your history
-    - Click on “**Show deleted**” in the top of the history panel. Remove definitely the file from the disk by clicking on "**Purge All Deleted Content**”.
-    - Click on “**Show active**”
+- Verify that your history is empty:
+  - Click **Show deleted** at the top of the history panel.
+  - Permanently delete the file by clicking **Purge All Deleted Content**.
+  - Return to the active view by clicking **Show active**.
 
 ![][showDeletedDatasets]
 
-# - Running a tool
+# - Running a Tool
+- Download the files **CRN-107_11-R1.fastq.gz** and **CRN-107_11-R2.fastq.gz** from [this link](https://seafile.igbmc.fr/d/1adaad8f80394182a784/).
+- Import them into your “DNA-seq data analysis” history:
+  - Genome: Human Feb. 2009 (GRCh37/hg19) (hg19)
+  - Format: `<auto detect>`
 
-  - Download the two files **CRN-107_11-R1.fastq.gz** and **CRN-107_11-R2.fastq.gz** following this [link](https://seafile.igbmc.fr/d/1adaad8f80394182a784/).
-  - Import them to your history called “DNA-seq data analysis”
-    * The genome is: Human (hg19)
-    * The format: \<auto detect\>
-
-  - Click on "Upload Data"
-  - Drag and drop the two fastq files “**CRN-107_11-R1.fastq.gz**” and "**CRN-107_11-R2.fastq.gz**"
-  - Select/Enter Genome for both datasets as: hg19
-  - Click on Start
+## - Upload Steps:
+1. Download both fastq files.
+2. Upload them into Galaxy:
+   - Click **Upload Data**.
+   - Drag and drop **CRN-107_11-R1.fastq.gz** and **CRN-107_11-R2.fastq.gz**.
+   - Set the genome for both datasets to **Human Feb. 2009 (GRCh37/hg19) (hg19)**.
+   - Click **Start**.
 
 ![][UploadFastqFiles]
 
-  - Use the tool “FastQC Read Quality reports” to compute quality analysis on the datasets “**CRN-107_11-R1.fastq**” and "**CRN-107_11-R2.fastq**"
-    - Use default parameters.
+## - Run the tool:
 
-One can run the same tool with the same set of parameters on several files at the same time.
+- Use the **FastQC Read Quality Reports** tool to analyze the quality of the datasets:
+  - Input files: **CRN-107_11-R1.fastq** and **CRN-107_11-R2.fastq**.
+  - Parameters: Default settings.
+
+- What is the quality encoding of the two fastq files?
 
 ![][runtool]
-
-What is the quality encoding of the two fastq files?
-
 ![][qualityencoding]
 
-# - Running tools without a workflow
-Analyze CRN-107 data from reads to variant annotation.
+# - Running Tools Without a Workflow
+Analyze the CRN-107 data from reads to variant annotation.
 
-Run the following tools:
-
-  - BWA mem to align reads to the reference genome
-  - Picard markduplicates to identify duplicated reads
-  - Freebayes to detect variants
-  - snpEff to annotate variants
-
-To run the tools you will need the following files:
-
-  * CRN-107_11-R1.fastq
-  * CRN-107_11-R2.fastq
-  * CaptureDesign_chr4.bed (download it from [here](https://seafile.igbmc.fr/d/e5ff06e2623344e68a20/))
-
-Here are the parameters to use for each of the tools. All parameters not mentioned are to be used with default values.
-
-  - __Map with BWA-MEM__ - map medium and long reads (> 100 bp) against reference genome
+## - Tools and Parameters:
+1. **Map with BWA-MEM ** map medium and long reads (> 100 bp) against reference genome
     - Using reference genome: Human (Homo sapiens) (b37): hg19
     - Single or Paired-end reads: Paired
     - Select first set of reads: CRN-107_11-R1.fastq.gz
@@ -131,100 +120,72 @@ Here are the parameters to use for each of the tools. All parameters not mention
       - Description (DS): CRN-107
       - Predicted median insert size (PI): 250
       - Date that run was produced (DT): 2017-12-13
-  - __MarkDuplicates__ examine aligned records in BAM datasets to locate duplicate molecules.
+2. **MarkDuplicates** examine aligned records in BAM datasets to locate duplicate molecules.
     - Select SAM/BAM dataset or dataset collection: **output of BWA mem**
     - Select validation stringency: Silent
-  - __FreeBayes__ bayesian genetic variant detector
+3. **FreeBayes** bayesian genetic variant detector
     - BAM or CRAM dataset: **output (bam) of markduplicates**
     - Using reference genome: hg19
-    - Limit by target file
-      - Limit analysis to regions in this BED dataset: CaptureDesign_chr4.bed
-  - __SnpEff eff:__ annotate variants
+    - Limit variant calling to a set of regions?
+      - Limit by target file
+        - Limit analysis to regions in this BED dataset: **CaptureDesign_chr4.bed**
+4. **SnpEff eff**: Annotate variants.
+    - **Choose SnpEff eff version 4.3+T.galaxy2** (see below)
+    ![][changesnpeffversion]
     - Sequence changes (SNPs, MNPs, InDels): **output of FreeBayes (VCF)**
     - Input format: VCF
     - Output format: VCF (only if input is VCF)
-    - Genome source: Downloaded on demand
-      - Snpff Genome Version Name (e.g. GRCh38.86): hg19
-  - __VCFtoTab-delimited__: Convert VCF data into TAB-delimited format
+    - Genome source: Locally installed snpEff database
+      - Genome: 
+        - Homo sapiens: hg19
+    - Upstream / Downstream length: No upstream / downstream intervals (0 bases)
+5. **VCFtoTab-delimited**: Convert VCF data to TAB-delimited format.
     - Select VCF dataset to convert: **output of SnpEff**
 
-  - How many variants are called?
+- How many variants are called?
 
-
-# - Create a workflow out of an existing history
-One can create a workflow from an existing history going to the history button and selecting "Extract Workflow".
-
-## - Extract a workflow out of the history called "DNA-seq data analysis"
+# - Create a Workflow Out of an Existing History
+1. Extract a workflow from the “DNA-seq data analysis” history:
+   - Go to the history menu and select **Extract Workflow**.
 
 ![][extractworkflow]
 
-
-## - Rename the workflow "DNA-seq data analysis"
+2. Rename the workflow to “DNA-seq data analysis.”
 
 ![][editorrunworklow]
 
-# - Edit a workflow with the workflow editor
-## - Open the workflow editor with the workflow "DNA-seq data analysis"
-
-  - Click on Workflow (top menu)
-  - Click on **DNA-seq data analysis** in the list of workflows
-  - Select **edit**
+# - Edit a Workflow with the Workflow Editor
+1. Open the **DNA-seq data analysis** workflow in the editor:
+   - Go to **Workflows** (top menu/side bar) and select **Edit**.
 
 ![][editworklow]
 
-An interactive view of the workflow is displayed:
-![][dnaseqworkflow]
+2. Add the following tools to the workflow:
+   - **Samtools flagstat** (compute mapping statistics after BWA mem).
+   - **Filter SAM or BAM** (remove low-quality reads with MAPQ < 20).
+   - **Samtools flagstat** (compute mapping statistics after filtering).
+   - Rename CRN-107_11-R1.fastq.gz box to Read 1 (fastq).
+   - Rename CRN-107_11-R2.fastq.gz box to Read 2 (fastq).
+   - Rename CaptureDesign_chr4.bed box to Capture Design (bed).
 
-You can move the boxes to make the workflow clearer:
-![][dnaseqorderedworkflow]
-
-## - Add steps to the workflow
-Your workflow should look like this before editing:
-
-![][workflowbeforeediting]
-
-Add the following tools:
-
-  - __Samtools flagstat__ to compute mapping statistics (after BWA mem)
-  - __Filter SAM or BAM, output SAM or BAM__ to select aligned reads with a mapping quality >= 20 (after MarkDuplicates)
-  - __Samtools flagstat__ to compute mapping statistics after removing reads with low mapping qualities (after Filter)
-
-Here are the parameters to use for each of the tools:
-
-  - __Flagstat__ tabulate descriptive stats for BAM dataset
-    - BAM File to Convert: **output of BWA mem**
-  - __Filter SAM or BAM, output SAM or BAM__ files on FLAG MAPQ RG LN or by region
-    - SAM or BAM file to filter: **output of Picard MarkDuplicates**
-    - Minimum MAPQ quality score: **20**
-  - __Flagstat__ tabulate descriptive stats for BAM dataset
-    - BAM File to Convert: **output of Filter**
-
-The final workflow should look like this (new tools are in purple boxes):
-
-![][workflowafterediting]
-
-Save the workflow once you are done editing it:
+3. Save the workflow.
 
 ![][saveworkflow]
 
-# - Run a workflow
-## - Import files
-Import the following files from the data library “DNA-seq test datasets” to a new history:
+# - Run a Workflow
+1. Copy the following files to a new history:
+   - **CRN-107_11-R1.fastq.gz**
+   - **CRN-107_11-R2.fastq.gz**
+   - **CaptureDesign_chr4.bed**
 
-  * CRN-107_11-R1.fastq
-  * CRN-107_11-R2.fastq
-  * CaptureDesign_chr4.bed
-
-## - Run the workflow DNA-seq data analysis
+2. Run the **DNA-seq data analysis** workflow:
+   - Select the appropriate input files and parameters.
 
 ![][runworkflow2]
-
-  - Choose the right files.
-  - Check the parameters.
-
 ![][runworkflow1]
 
-  - How many reads are discarded due to the low mapping quality?
+- How many reads are discarded due to low mapping quality?
+
 
 [importData]: images/Galaxy/importData.png "importe data"
 [removedataset]: images/Galaxy/RemoveDataset.png "remove dataset"
@@ -235,6 +196,7 @@ Import the following files from the data library “DNA-seq test datasets” to 
 [qualityencoding]: images/Galaxy/02-qualityencoding.png "02-qualityencoding"
 [renamehistory]: images/Galaxy/02-renamehistory.png "02-renamehistory"
 [runtool]: images/Galaxy/02-runtool.png "02-runtool"
+[changesnpeffversion]: images/Galaxy/ChooseSnpEffversion.png "Choose SnpEff eff version"
 [extractworkflow]: images/Galaxy/03-extractworkflow.png "03-extractworkflow"
 [LaunchDragAndDrop]: images/Galaxy/03.1-LaunchDragAndDrop.png "03.1-LaunchDragAndDrop"
 [UploadFastqFiles]: images/Galaxy/03.2-UploadFastqFiles.png "03.2-UploadFastqFiles"
