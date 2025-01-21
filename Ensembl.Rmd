@@ -1,7 +1,7 @@
 ---
 title: "DU High throughput sequencing and rare diseases - Introduction to Ensembl Genome Browser/Biomart"
 author: "Jean Muller$^{1}$ - jeanmuller@unistra.fr; Stephanie Le Gras$^{2}$ - slegras@igbmc.fr"
-date: "2024 January 17th"
+date: "2025 January 22nd"
 output:
   html_document:
     fig_caption: yes
@@ -38,7 +38,7 @@ $^2$ GenomEast platform, IGBMC
 </details>
 
 
-  * How many coding genes does the Human genome contain in the current Ensembl release (v111)?
+  * How many coding genes does the Human genome contain in the current Ensembl release (v113)?
 
 <details>
   <summary> Show answer </summary>
@@ -146,7 +146,7 @@ Display RNAseq data for breast and skeletal muscle in the genome browser (in BRC
 ### - Question
 
 Using Ensembl/BioMart, retrieve all transcripts IDs and the gene ID of IDH1 gene (human). How many transcripts the gene IDH1 has?
-Use Ensembl Gene v111, for Human GRCh38.p14:
+Use Ensembl Gene v113, for Human GRCh38.p14:
 
   * Click on Filters :
     * Expand the GENE section
@@ -163,7 +163,7 @@ Use Ensembl Gene v111, for Human GRCh38.p14:
   - Click on Filters (left panel)
   - Expand the “GENE” section
   - Select “Input external references ID list”, select “Gene Name(s)" in the drop down list and enter IDH1.
-  - Click on Count in the top left panel . You should get 1 / 70711 Genes.
+  - Click on Count in the top left panel . You should get 1 / 86402 Genes.
   - Click on Attributes (left menu)
   - Select “Features” (selected by default)
   - Select Gene stable ID, Transcript stable ID, Gene Name
@@ -277,7 +277,7 @@ Here are the different column of the file to be analyzed:
   * ... | ... |
 
 ### - Question
-Download and uncompress the file [simitfvssiluc-up.tsv.zip](https://seafile.igbmc.fr/f/a1e03f1b711349489bd2/?dl=1) to extract gene annotations using Ensembl/BioMart for those genes. Use the column Gene ID to extract annotations. Annotations to extract are:
+Download the file [simitfvssiluc-up.tsv](https://seafile.igbmc.fr/f/5ba9c86a747043bca289/?dl=1) to extract gene annotations using Ensembl/BioMart for those genes. Use the column Gene ID to extract annotations. Annotations to extract are:
 
   * gene IDs
   * chromosome
@@ -289,13 +289,13 @@ Download and uncompress the file [simitfvssiluc-up.tsv.zip](https://seafile.igbm
 
 <details>
   <summary> Show answer </summary>
-In Ensembl/BioMart, create a new request using an archive of Ensembl v95.
+In Ensembl/BioMart, create a new request using current version of Ensembl. How many genes are lost between/have changed between Ensembl v95 and current version?
 
   - Click on Filters (left panel)
   - Expand the GENE section
   - Select “Input external references ID list” and select “Ensembl Gene ID(s)” in the drop down list
   - Click on “Browse” and select the file siMitfvssiLuc.up.txt
-  - Click on “Count” (top left button). You should have: 3663/64914 Genes
+  - Click on “Count” (top left button). You should have: 3649 / 86402 Genes Genes
   - Click on Attributes (left panel)
   -  Select “Features” (selected by default), select Ensembl Gene ID, Chromosome Name, Gene Start (bp), Gene End (bp), Strand, Associated Gene Name and Gene type.
   -  Click on Results
@@ -322,7 +322,6 @@ Flank (Transcript) will give the flanks for all transcripts of a gene with multi
 </details>
 
 ## - Retrieve information using genomic coordinates
-**Use Biomart of current version of Ensembl**.
 
 ### - Question
 How many genes are located in the genomic region: 2:208226227-208276270.
@@ -355,7 +354,7 @@ In Ensembl/BioMart, create a new request (see slide 2.)
 
   - Click on Filters (left panel)
   - Expand the REGION section
-  - Select “Chromosome” and multiple select 1 -> MT (click and drag). This corresponds to 58676 / 64914 Genes
+  - Select “Chromosome” and multiple select 1 -> MT (click and drag). This corresponds to 78724 / 86402 Genes
   - Click on Attributes (left panel)
   - Select “Features” (selected by default)
   - In GENE, select Gene stable ID, Chromosome/scaffold name, Gene Start (bp), Gene End (bp), strand and Gene Name
@@ -382,7 +381,7 @@ Generate a list that shows to which Gene stable IDs and to which Gene names thes
 <details>
   <summary> Show answer </summary>
   - Click New.
-  - Choose the ENSEMBL Genes 111 database.
+  - Choose the ENSEMBL Genes 113 database.
   - Choose the Homo sapiens genes (GRCh38.p14) dataset.
 
   - Click on Filters in the left panel.
@@ -419,7 +418,7 @@ Retrieve for the genes corresponding to these probe-sets the Gene and Transcript
 <details>
   <summary> Show answer </summary>
   * Click New.
-  * Choose the ENSEMBL Genes 111 database.
+  * Choose the ENSEMBL Genes 113 database.
   * Choose the Homo sapiens genes (GRCh38.p14) dataset.
 
   * Click on Filters in the left panel.
