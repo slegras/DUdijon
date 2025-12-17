@@ -191,6 +191,8 @@ We will limit the analysis to targets located on chromosome 4. Download the file
 
 - How many reads are discarded due to low mapping quality?
 
+# - In case of emergency
+The final history can be imported from [here](https://usegalaxy.fr/u/stephanie/h/dna-seq-data-analysis-1)
 
 [importData]: images/Galaxy/importData.png "importe data"
 [removedataset]: images/Galaxy/RemoveDataset.png "remove dataset"
