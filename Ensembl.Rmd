@@ -1,7 +1,7 @@
 ---
 title: "DU High throughput sequencing and rare diseases - Introduction to Ensembl Genome Browser/Biomart"
-author: "Jean Muller$^{1}$ - jeanmuller@unistra.fr; Stephanie Le Gras$^{2}$ - slegras@igbmc.fr"
-date: "2025 January 22nd"
+author: "Jean Muller$^{1}$ - jeanmuller@unistra.fr; Stephanie Le Gras$^{2}$ - slegras@unistra.fr"
+date: "2026 January 21st"
 output:
   html_document:
     fig_caption: yes
@@ -24,9 +24,9 @@ bibliography: references.bib
 knitr::opts_chunk$set(echo = TRUE, root.dir="~/Documents/Formations/2024/DUDijon")
 ```
 
-$^1$ Laboratoire de Génétique Médicale (U1112); Laboratoires de Diagnostic Génétique (HUS); Bioinformatique Médicale appliquée au Diagnostic (UF7363)
+$^1$ UMR_S 1112, Laboratoire de Génétique Médicale, Laboratoire de Diagnostic Génétique (CHU Strasbourg)
 
-$^2$ GenomEast platform, IGBMC
+$^2$ Plateau technique de biologie moléculaire et bioinformatique, INCI - LNCA, Strasbourg, Équipe Modulation épigénétique des processus neurodégénératifs, LNCA, Strasbourg
 
 # - Practical session: Ensembl Genome Browser
 ## - Question
@@ -38,7 +38,7 @@ $^2$ GenomEast platform, IGBMC
 </details>
 
 
-  * How many coding genes does the Human genome contain in the current Ensembl release (v113)?
+  * How many coding genes does the Human genome contain in the current Ensembl release (v115)?
 
 <details>
   <summary> Show answer </summary>
@@ -146,7 +146,7 @@ Display RNAseq data for breast and skeletal muscle in the genome browser (in BRC
 ### - Question
 
 Using Ensembl/BioMart, retrieve all transcripts IDs and the gene ID of IDH1 gene (human). How many transcripts the gene IDH1 has?
-Use Ensembl Gene v113, for Human GRCh38.p14:
+Use Ensembl Gene v115, for Human GRCh38.p14:
 
   * Click on Filters :
     * Expand the GENE section
@@ -163,13 +163,13 @@ Use Ensembl Gene v113, for Human GRCh38.p14:
   - Click on Filters (left panel)
   - Expand the “GENE” section
   - Select “Input external references ID list”, select “Gene Name(s)" in the drop down list and enter IDH1.
-  - Click on Count in the top left panel . You should get 1 / 86402 Genes.
+  - Click on Count in the top left panel . You should get 1 / 86369 Genes.
   - Click on Attributes (left menu)
   - Select “Features” (selected by default)
   - Select Gene stable ID, Transcript stable ID, Gene Name
   - Click on Results (top left menu)
 
-**9 transcripts are found**
+**34 transcripts are found**
 
 </details>
 
@@ -295,7 +295,7 @@ In Ensembl/BioMart, create a new request using current version of Ensembl. How m
   - Expand the GENE section
   - Select “Input external references ID list” and select “Ensembl Gene ID(s)” in the drop down list
   - Click on “Browse” and select the file siMitfvssiLuc.up.txt
-  - Click on “Count” (top left button). You should have: 3649 / 86402 Genes Genes
+  - Click on “Count” (top left button). You should have: 3648 / 86402 Genes Genes
   - Click on Attributes (left panel)
   -  Select “Features” (selected by default), select Ensembl Gene ID, Chromosome Name, Gene Start (bp), Gene End (bp), Strand, Associated Gene Name and Gene type.
   -  Click on Results
@@ -354,7 +354,7 @@ In Ensembl/BioMart, create a new request (see slide 2.)
 
   - Click on Filters (left panel)
   - Expand the REGION section
-  - Select “Chromosome” and multiple select 1 -> MT (click and drag). This corresponds to 78724 / 86402 Genes
+  - Select “Chromosome” and multiple select 1 -> MT (click and drag). This corresponds to 78691 / 86369 Genes
   - Click on Attributes (left panel)
   - Select “Features” (selected by default)
   - In GENE, select Gene stable ID, Chromosome/scaffold name, Gene Start (bp), Gene End (bp), strand and Gene Name
@@ -381,7 +381,7 @@ Generate a list that shows to which Gene stable IDs and to which Gene names thes
 <details>
   <summary> Show answer </summary>
   - Click New.
-  - Choose the ENSEMBL Genes 113 database.
+  - Choose the ENSEMBL Genes 115 database.
   - Choose the Homo sapiens genes (GRCh38.p14) dataset.
 
   - Click on Filters in the left panel.
@@ -418,7 +418,7 @@ Retrieve for the genes corresponding to these probe-sets the Gene and Transcript
 <details>
   <summary> Show answer </summary>
   * Click New.
-  * Choose the ENSEMBL Genes 113 database.
+  * Choose the ENSEMBL Genes 115 database.
   * Choose the Homo sapiens genes (GRCh38.p14) dataset.
 
   * Click on Filters in the left panel.
